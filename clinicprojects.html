@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunrise Dental Care - Project Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="clinic.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="project-container">
+    <header class="project-header">
+      <div class="back-button">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+      </div>
+      <h1>Sunrise Dental Care</h1>
+      <p class="project-description">A comprehensive dental practice management solution with online appointment system</p>
+    </header>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="card-image">
+          <img src="adminlogin.png" alt="Admin Login">
+        </div>
+        <div class="card-content">
+          <h3>Admin Login</h3>
+          <p>Secure login system for clinic administrators and staff</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-image">
+          <img src="patientlogin.png" alt="Patient Login">
+        </div>
+        <div class="card-content">
+          <h3>Patient Login</h3>
+          <p>Secure patient portal for appointment management</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-image">
+          <img src="landingpage.png" alt="Landing Page">
+        </div>
+        <div class="card-content">
+          <h3>Landing Page</h3>
+          <p>Modern and welcoming homepage for the dental clinic</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-image">
+          <img src="register.png" alt="Registration">
+        </div>
+        <div class="card-content">
+          <h3>Patient Registration</h3>
+          <p>Streamlined registration process for new patients</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-image">
+          <img src="forgot.png" alt="Password Recovery">
+        </div>
+        <div class="card-content">
+          <h3>Password Recovery</h3>
+          <p>Secure password reset functionality for user accounts</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Container -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    // Get all project images
+    const projectImages = document.querySelectorAll('.card-image img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    // Add click event to each project image
+    projectImages.forEach(image => {
+      image.addEventListener('click', () => {
+        lightboxImg.src = image.src;
+        lightboxImg.alt = image.alt;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Close lightbox when clicking the close button
+    lightboxClose.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>
